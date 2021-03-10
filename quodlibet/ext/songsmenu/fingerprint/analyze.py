@@ -172,7 +172,7 @@ class FingerPrintPool(GObject.GObject):
     def _get_worker(self):
         """An idle FingerPrintPipeline or None"""
 
-        for worker in self._workers:
+        for worker in self._workers.copy():
             if worker in self._idle:
                 self._idle.discard(worker)
                 break
